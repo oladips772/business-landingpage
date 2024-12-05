@@ -1,0 +1,307 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - KOCHI SOLUTIONS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      nav {
+        background-color: #1e3a6e;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .nav-links a {
+        color: #ffd700;
+        text-decoration: none;
+        margin-left: 2rem;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        min-height: 40vh;
+        background: linear-gradient(45deg, #ff8c42, #9b4f96);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 30px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 20% 50%,
+          transparent 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        pointer-events: none;
+      }
+
+      .hero h1 {
+        color: white;
+        font-size: 3.5rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 4rem;
+      }
+
+      .contact-details {
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-details h2 {
+        color: #1e3a6e;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .contact-info {
+        margin-bottom: 2rem;
+      }
+
+      .contact-info p {
+        margin: 0.5rem 0;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .contact-form {
+        padding: 1rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form h2 {
+        color: #1e3a6e;
+        margin-bottom: 2rem;
+        font-size: 1.8rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #555;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #1e3a6e;
+        box-shadow: 0 0 0 2px rgba(30, 58, 110, 0.1);
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .submit-btn,
+      .reset-btn {
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .submit-btn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      .reset-btn {
+        background-color: #ff6b6b;
+        color: white;
+      }
+
+      .submit-btn:hover,
+      .reset-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      footer {
+        background-color: #000;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .nav-links a {
+          margin-left: 1rem;
+        }
+      }
+
+      /* Animation for form submission feedback */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        75% {
+          transform: translateX(10px);
+        }
+      }
+
+      .invalid {
+        animation: shake 0.5s ease-in-out;
+        border-color: #ff6b6b !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">KOCHI</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>CONTACT US</h1>
+    </section>
+
+    <div class="contact-container">
+      <div class="contact-details">
+        <h2>Contact Details</h2>
+        <div class="contact-info">
+          <p><strong>Email:</strong><br />contact@kochi.com</p>
+          <p><strong>Phone:</strong><br />(555) 555-5555</p>
+        </div>
+        <div class="contact-info">
+          <h3>Central HQ</h3>
+          <p>123 Avenue Street</p>
+          <p>City Township, CA 12345</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h2>Online Inquiry</h2>
+        <form id="contactForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="e.g. John Smith"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="e.g. name@domain.id"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Type your message here (between 20 and 500 characters)"
+              required
+              minlength="20"
+              maxlength="500"
+            ></textarea>
+          </div>
+          <div class="button-group">
+            <button type="submit" class="submit-btn">SUBMIT</button>
+            <button type="reset" class="reset-btn">RESET</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>Copyright Kochi Inc. 2025. Developed by Black Innovations Africa.</p>
+    </footer>
+  </body>
+</html>
